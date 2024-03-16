@@ -12,6 +12,9 @@ import { SiTailwindcss } from "react-icons/si";
 import { DiMongodb } from "react-icons/di";
 import { DiJqueryLogo } from "react-icons/di";
 import { SiPostgresql } from "react-icons/si";
+import { FaDocker } from "react-icons/fa";
+
+
 const Skills = () => {
   return (
     <div className='mt-20 w-3/4'>
@@ -28,8 +31,11 @@ const Skills = () => {
 <p className="group bg-gray-200 px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/50"><DiNodejs className='font-bold text-4xl'/></p>
 <p className="group bg-gray-200 px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/50"><SiExpress className='font-bold text-4xl'/></p>
 <p className="group bg-gray-200 px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/50"><DiMongodb className='font-bold text-4xl'/></p>
+<p className="group bg-gray-200 px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/50"><SiPostgresql className='font-bold text-4xl'/></p>
+
 <p className="group bg-gray-200 px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/50"><DiJqueryLogo className='font-bold text-4xl'/></p>
 <p className="group bg-gray-200 px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/50"><FaGithub className='font-bold text-4xl'/></p>
+<p className="group bg-gray-200 px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 active:scale-105 transition cursor-pointer borderBlack dark:bg-white/50"><FaDocker  className='font-bold text-4xl'/></p>
 
     </ul>
     
