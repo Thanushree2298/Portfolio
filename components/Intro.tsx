@@ -8,7 +8,7 @@ const Intro = () => {
     <section id='home' className='flex items-center justify-center mt-20'>
       <div className='w-3/4 lg:flex lg:items-center lg:justify-center'>
         <div className='text-left lg:text-center lg:mr-8'>
-          <span className='text-3xl'>Hello! I'm,</span>
+          <span className='text-3xl'>Hello! I&apos;m,</span>
           <br />
           <h1 className='text-5xl'>Thanushree R</h1>
           <p className='text-xl'>As a <span className='font-bold'>Web developer</span>, I am dedicated to shaping the digital landscape by crafting seamless web experiences</p>

@@ -17,7 +17,7 @@ const Info = () => {
         My core stack is{' '}
         <span className="font-medium">React.js, Next.js, Javacript and Typescript</span>.
         I am also familiar with{' '}
-        <span className="font-medium">Node.js, Express.js, MongoDB, PostgresSql, TanstackQuery and Restful API's</span>.
+        <span className="font-medium">Node.js, Express.js, MongoDB, PostgresSql, TanstackQuery and Restful API&apos;s</span>.
         I am always looking to learn new technologies.
         I am currently looking for a{' '}
         <span className="font-medium">full-time position</span> as a Web Developer, eager to contribute my skills and passion to a dynamic team.
