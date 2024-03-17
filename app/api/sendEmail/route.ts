@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 const nodemailer = require("nodemailer");
-const fs = require('fs');
 require("dotenv").config();
+
+
 
 export async function POST(request: NextRequest) {
   const { name, email, message } = await request.json();
@@ -17,18 +18,7 @@ export async function POST(request: NextRequest) {
       maxConnection: 1
     });
 
-    await new Promise((resolve, reject) => {
-      // verify connection configuration
-      transporter.verify(function (error: any, success: any) {
-          if (error) {
-              console.log(error);
-              reject(error);
-          } else {
-              console.log("Server is ready to take our messages");
-              resolve(success);
-          }
-      });
-  });
+
 
     const mailOptions = {
       to: process.env.APP_MAIL, // list of receivers
@@ -39,24 +29,13 @@ export async function POST(request: NextRequest) {
       subject: "Message from Portfolio-contact", // Subject line
       html: `
         <h3>Hello Thanushree</h3>
-        <p>I am ${name}.</p>
-        <p>Contact me: ${email}</p>
+        <h4>I am ${name}.</h4>
+        <p>My email: ${email}</p>
         <p>My message for you: ${message}.</p>
       `,
     };
 
-    await new Promise((resolve, reject) => {
-      // send mail
-      transporter.sendMail(mailOptions, (err: any, info: any) => {
-          if (err) {
-              console.error(err);
-              reject(err);
-          } else {
-              console.log(info);
-              resolve(info);
-          }
-      });
-  });
+ 
 
   
 
