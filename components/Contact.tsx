@@ -5,6 +5,7 @@ import { FaPaperPlane } from "react-icons/fa";
 
 const Contact = () => {
 const [name, setName] = useState("");
+const [email, setEmail] = useState("")
 const [message, setMessage] = useState("")
 
 const sendMail = async (e: any) => {
@@ -17,6 +18,7 @@ const sendMail = async (e: any) => {
     },
     body: JSON.stringify({
       name,
+      email,
       message,
     })
   })
@@ -42,6 +44,19 @@ const sendMail = async (e: any) => {
                 }}
                 autoComplete="given-name"
                 placeholder='Name'
+                className='input'
+              />
+
+              <input
+                type="text"
+                name="email"
+                id="email"
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value)
+                }}
+                autoComplete="given-email"
+                placeholder='Your mail'
                 className='input'
               />
             
