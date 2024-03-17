@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 const nodemailer = require("nodemailer");
+const fs = require('fs');
 require("dotenv").config();
 
 export async function POST(request: NextRequest) {
@@ -7,16 +8,27 @@ export async function POST(request: NextRequest) {
   try {
     const transporter = nodemailer.createTransport({
       host: "smtp.outlook.com",
-      pool: true,
       service: "hotmail",
-      port: 587,
-      secure: false,
+      port: 465,
       auth: {
         user: process.env.APP_MAIL, //sender mail
         pass: process.env.APP_PASSWORD, //app password from gmail acc
       },
       maxConnection: 1
     });
+
+    await new Promise((resolve, reject) => {
+      // verify connection configuration
+      transporter.verify(function (error: any, success: any) {
+          if (error) {
+              console.log(error);
+              reject(error);
+          } else {
+              console.log("Server is ready to take our messages");
+              resolve(success);
+          }
+      });
+  });
 
     const mailOptions = {
       to: process.env.APP_MAIL, // list of receivers
@@ -32,6 +44,21 @@ export async function POST(request: NextRequest) {
         <p>My message for you: ${message}.</p>
       `,
     };
+
+    await new Promise((resolve, reject) => {
+      // send mail
+      transporter.sendMail(mailOptions, (err: any, info: any) => {
+          if (err) {
+              console.error(err);
+              reject(err);
+          } else {
+              console.log(info);
+              resolve(info);
+          }
+      });
+  });
+
+  
 
     const sendMail = async (transporter: any, mailOptions: any) => {
       try {
