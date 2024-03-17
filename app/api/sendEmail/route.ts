@@ -6,9 +6,10 @@ export async function POST(request: NextRequest) {
   const { name, message } = await request.json();
   try {
     const transporter = nodemailer.createTransport({
+      host: "smtp-mail.outlook.com",
       pool: true,
       service: "hotmail",
-      port: 2525,
+      port: 587,
       auth: {
         user: "thanushreer22@outlook.com", //sender mail
         pass: process.env.APP_PASSWORD, //app password from gmail acc
