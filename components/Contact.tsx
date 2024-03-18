@@ -14,7 +14,7 @@ const sendMail = async (e: any) => {
   const response = await fetch("/api/sendEmail", {
     method: "POST",
     headers: {
-      "Content-type": "application.json",
+      "Content-type": "application/json",
     },
     body: JSON.stringify({
       name,
@@ -30,7 +30,12 @@ const sendMail = async (e: any) => {
     <div id="contact" className='flex items-center justify-center mt-20'>
     <div  className="contactform-box">
       <section className="text-3xl text-center font-bold py-5">Contact Me</section>
-      <div className='text-center font-medium text-medium'>Message me here</div>
+      <div className='text-center font-medium text-medium'>Call me directly +91 8660859180</div>
+      <div className='text-center font-medium text-medium'>or</div>
+      <div className='text-center font-medium text-medium'>Email me directly thanushreer22@gmail.com</div>
+      <div className='text-center font-medium text-medium'>or</div>
+      <div className='text-center font-medium text-medium'>Message me</div>
+
       
       
             <form onSubmit={sendMail} className='form flex items-center justify-center mt-5'>
