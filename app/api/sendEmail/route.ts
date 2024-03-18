@@ -10,21 +10,19 @@ export async function POST(request: NextRequest) {
     const transporter = nodemailer.createTransport({
       host: "smtp.outlook.com",
       service: "hotmail",
-      port: 465,
+      port: 587,
       auth: {
-        user: process.env.APP_MAIL, //sender mail
-        pass: process.env.APP_PASSWORD, //app password from gmail acc
+        user: process.env.NEXT_PUBLIC_APP_MAIL, //sender mail
+        pass: process.env.NEXT_PUBLIC_APP_PASSWORD, //app password from gmail acc
       },
       maxConnection: 1
     });
 
-
-
     const mailOptions = {
-      to: process.env.APP_MAIL, // list of receivers
+      to: process.env.NEXT_PUBLIC_APP_MAIL, // list of receivers
       from: {
         name: "Thanushree R",
-        address: process.env.APP_MAIL,
+        address: process.env.NEXT_PUBLIC_APP_MAIL,
       }, // sender address
       subject: "Message from Portfolio-contact", // Subject line
       html: `
@@ -38,23 +36,23 @@ export async function POST(request: NextRequest) {
  
 
   
-
-    const sendMail = async (transporter: any, mailOptions: any) => {
-      try {
-        const info = await transporter.sendMail(mailOptions);
-        console.log("Email sent Successfully!: ", info); 
-        return info;
-      } catch (error) {
-        console.error("Error sending email: ", error);
-        throw error; // Rethrow the error to be caught by the outer try-catch block
+    await new Promise((resolve, reject) => {
+    transporter.sendMail(mailOptions, (error:any, info: any) => {
+    if(error) {
+      console.error("Error sending email: ", error);
+    }  else {
+    console.log("Email sent Successfully!: ", info); 
       }
-    };
+    });
+        
+      })
+   
      
-    sendMail(transporter, mailOptions);
 
     return NextResponse.json({ message: "Email sent Successfully!" }, { status: 200 });
   } catch (error) {
     console.error("Failed to send email: ", error);
     return NextResponse.json({ message: "Failed to send message" }, { status: 500 });
   }
-}
+};
+
